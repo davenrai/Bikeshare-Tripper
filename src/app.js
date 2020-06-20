@@ -70,40 +70,7 @@ let secondStation, secondStationNum;
 const generateRoute = (station_data) => {
     return Promise.all([getStations(), printStationMarkers()])
 }
-// generateRoute().then(result => {
-//     firstStationNum = Math.floor(Math.random() * station_data.length)
-//     secondStationNum = Math.floor(Math.random() * station_data.length)
 
-//     console.log("first Station: " + station_data[firstStationNum]['name'])
-//     let firstStation = new google.maps.LatLng(station_data[firstStationNum]['lat'], station_data[firstStationNum]['lon'])
-//     console.log("lat lng of first " + firstStation)
-
-//     console.log("second location " + station_data[secondStationNum]['name'])
-//     let secondStation = new google.maps.LatLng(station_data[secondStationNum]['lat'], station_data[secondStationNum]['lon'])
-
-//     // checkRoute
-//     let request = {
-//         origin: firstStation, 
-//         destination: secondStation, 
-//         travelMode: 'BICYCLING'
-//     };
-//     directionsService.route(request, function(response, status) {
-//         if(status == "OK") {
-//             if(response.routes[0].legs[0].duration.value <= 1800){
-//                 console.log(response.routes[0].legs[0].duration.value)
-//                 directionsRenderer.setDirections(response);
-//                 directionsRenderer.setMap(map);
-//             }
-//             else {
-//                 console.log('route is over 30 mins... finding new route' + response)
-//             }
-//         }
-//         else{
-//             console.log('ERROR')
-//         }
-//     })
-
-// })
 // Sets the map on all markers in the array.
 function setMapOnAll(map) {
     for (var i = 0; i < markers.length; i++) {
