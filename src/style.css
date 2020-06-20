@@ -1,0 +1,44 @@
+/* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+#map {
+  width: 900px;
+  height: 550px;
+  margin: auto;
+}
+
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #1F2833;
+  color: whitesmoke
+}
+.title {
+  margin-bottom: 20px;
+}
+#container {
+  margin: 10px;
+  text-align: center;
+}
+
+#button {
+  margin-top: 20px;
+  text-align: center;
+}
+
+#info {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  height: 200px;
+}
+
+#destinationInfo {
+  width: 50%
+}
+
+#originInfo {
+  width: 50%;
+}

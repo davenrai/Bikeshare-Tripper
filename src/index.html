@@ -1,0 +1,37 @@
+<html>
+
+<head>
+    <title>Bikeshare Trip Randomizer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="./config.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm5XdQGyujh1QHoK7EaH8AT1inyjUCcJA&callback=initMap&libraries=&v=weekly"
+        async defer></script>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="./app.js"></script>
+    <script src="./server.js"></script>
+    
+</head>
+
+<body>
+    <div id="container">
+        <h1 class="title">Bikeshare Random Trip Generator</h1>
+        <div id="map"></div>
+        <button style="margin-top: 10px" id="generateButton" type="button" value='Generate'
+            class="btn btn-primary">Generate</button>
+        <p id="generationResult" style="margin: 5px">
+        <div id="info">
+            <span id="originInfo">
+                <h3 class="title">Origin</h3>
+            </span>
+            <span id="destinationInfo">
+                <h3 class="title">Destination</h3>
+            </span>
+        </div>
+    </div>
+
+</body>
+
+</html>
