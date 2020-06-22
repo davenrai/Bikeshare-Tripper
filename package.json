@@ -1,0 +1,26 @@
+{
+  "name": "randomized-bikeshare",
+  "version": "1.0.0",
+  "description": "This web app was created to generate routes between two bikeshare locations across the City of Toronto. The route generated has a travel time of 30 minutes ensuring that your bikeshare ride is free. Generate a route and explore a different part of the city :)",
+  "main": "server.js",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davenrai/Random-Bikeshare-Tripper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/davenrai/Random-Bikeshare-Tripper/issues"
+  },
+  "homepage": "https://github.com/davenrai/Random-Bikeshare-Tripper#readme"
+}

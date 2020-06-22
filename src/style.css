@@ -10,13 +10,14 @@
 html,
 body {
   height: 100%;
-  margin: 0;
+  margin: 7vh;
   padding: 0;
   background-color: #1F2833;
   color: whitesmoke
 }
 .title {
-  margin-bottom: 20px;
+  margin: 20px;
+  text-decoration: underline;
 }
 #container {
   margin: 10px;
@@ -30,15 +31,18 @@ body {
 
 #info {
   display: flex;
-  /* justify-content: center;
-  align-items: center; */
+  margin: auto;
+  justify-content: center;
   height: 200px;
+  width: 70%;
 }
 
 #destinationInfo {
-  width: 50%
+  width: 50%;
+  border: 1px solid white;
 }
 
 #originInfo {
   width: 50%;
+  border: 1px solid white;
 }

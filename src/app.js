@@ -34,7 +34,7 @@ const getStations = async () => {
     let response = await fetch(url)
     let result = await response.json()
     station_data = result.data['stations']
-    console.log(result.data)
+    // console.log(result.data)
     return result.data
 }
 
@@ -49,7 +49,7 @@ let marker;
 
 printStationMarkers().then(result => {
     for (let i = 0; i < station_data.length; i++) {
-        console.log(station_data[i])
+        //console.log(station_data[i])
 
         lat = station_data[i]['lat']
         lon = station_data[i]['lon']
@@ -83,62 +83,58 @@ function clearMarkers() {
     setMapOnAll(null);
 }
 
-window.onload = function () {
-    console.log(markers)
-    const button = document.querySelector('#generateButton')
-    button.addEventListener('click', function () {
-        generateRoute().then(result => {
-            firstStationNum = Math.floor(Math.random() * station_data.length)
-            secondStationNum = Math.floor(Math.random() * station_data.length)
+const getRoute = () => {
+    generateRoute().then(result => {
+        firstStationNum = Math.floor(Math.random() * station_data.length)
+        secondStationNum = Math.floor(Math.random() * station_data.length)
 
-            console.log("first Station: " + station_data[firstStationNum]['name'])
-            let firstStation = new google.maps.LatLng(station_data[firstStationNum]['lat'], station_data[firstStationNum]['lon'])
-            console.log("lat lng of first " + firstStation)
+        console.log("first Station: " + station_data[firstStationNum]['name'])
+        let firstStation = new google.maps.LatLng(station_data[firstStationNum]['lat'], station_data[firstStationNum]['lon'])
+        console.log("lat lng of first " + firstStation)
 
-            console.log("second location " + station_data[secondStationNum]['name'])
-            let secondStation = new google.maps.LatLng(station_data[secondStationNum]['lat'], station_data[secondStationNum]['lon'])
+        console.log("second location " + station_data[secondStationNum]['name'])
+        let secondStation = new google.maps.LatLng(station_data[secondStationNum]['lat'], station_data[secondStationNum]['lon'])
 
-            // checkRoute
-            let request = {
-                origin: firstStation,
-                destination: secondStation,
-                travelMode: 'BICYCLING'
-            };
+        // checkRoute
+        let request = {
+            origin: firstStation,
+            destination: secondStation,
+            travelMode: 'BICYCLING'
+        };
 
-            directionsService.route(request, function (response, status) {
-                const result = document.querySelector('#generationResult')
-                if (status == "OK") {
+        directionsService.route(request, function (response, status) {
+            const result = document.querySelector('#generationResult')
+            if (status == "OK") {
+                
+                if (response.routes[0].legs[0].duration.value <= 1800) {
+                    //console.log(response.routes[0].legs[0].duration.value)
+                    setMapOnAll(null);
+                    //console.log(map)
+                    directionsRenderer.setDirections(response);
+                    directionsRenderer.setMap(map);
                     
-                    if (response.routes[0].legs[0].duration.value <= 1800) {
-                        console.log(response.routes[0].legs[0].duration.value)
-                        setMapOnAll(null);
-                        console.log(map)
-                        directionsRenderer.setDirections(response);
-                        directionsRenderer.setMap(map);
-                        
-                        const originInfo = document.querySelector('#originInfo')
-                        let originText = document.createElement('p')
-                        originText.appendChild(document.createTextNode(station_data[firstStationNum]['address']))
-                        originInfo.appendChild(originText)
-                        console.log(originInfo)
+                    const originAddress = document.querySelector('#originAddress')
+                    originAddress.innerText = station_data[firstStationNum]['address']
 
-                        const destinationInfo = document.querySelector('#destinationInfo')
-                        let destinationText = document.createElement('p')
-                        destinationText.appendChild(document.createTextNode(station_data[secondStationNum]['address']))
-                        destinationInfo.appendChild(destinationText)
-                        console.log(destinationInfo)
-                        
-                        result.appendChild(document.createTextNode("Estimated Time: " + response.routes[0].legs[0].duration.text))
-                    } else {
-                        console.log('route is over 30 mins... finding new route' + response)
-                        
-                        // result.appendChild(document.createTextNode('Result generated was over 30 mins.. click Generate to try again.'))
-                    }
+                    const destinationAddress = document.querySelector('#destinationAddress')
+                    destinationAddress.innerText = station_data[secondStationNum]['address']
+                    
+                    
+                    result.innerText = "Estimated Time: " + response.routes[0].legs[0].duration.text;
                 } else {
-                    console.log('ERROR')
+                    console.log('route is over 30 mins... finding new route' + response)
+                    return getRoute();
+                    
                 }
-            })
-
+            } else {
+                console.log('ERROR')
+            }
         })
+
     })
+}
+
+window.onload = function () {
+    const button = document.querySelector('#generateButton')
+    button.addEventListener('click', getRoute);
 }

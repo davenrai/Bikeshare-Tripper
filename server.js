@@ -16,6 +16,5 @@ app.get("*", (req, res) => {
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 const key = process.env.PROJECT_API_KEY;
-console.log(key)
 
 module.exports = { key }

@@ -1,37 +1,47 @@
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
+    <meta charset="utf-8">
+
     <title>Bikeshare Trip Randomizer</title>
+    <meta name="description" content="Bikeshare">
+    <meta name="author" content="Daven">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
-    <script src="./config.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBm5XdQGyujh1QHoK7EaH8AT1inyjUCcJA&callback=initMap&libraries=&v=weekly"
         async defer></script>
-    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="./app.js"></script>
-    <script src="./server.js"></script>
-    
+
 </head>
 
 <body>
+
+
     <div id="container">
         <h1 class="title">Bikeshare Random Trip Generator</h1>
         <div id="map"></div>
         <button style="margin-top: 10px" id="generateButton" type="button" value='Generate'
             class="btn btn-primary">Generate</button>
-        <p id="generationResult" style="margin: 5px">
+        <p id="generationResult" style="margin: 20px"> Estimated Time:  </p>
         <div id="info">
             <span id="originInfo">
                 <h3 class="title">Origin</h3>
+                <p id="originAddress"></p>
             </span>
             <span id="destinationInfo">
                 <h3 class="title">Destination</h3>
+                <p id="destinationAddress"></p>
             </span>
         </div>
     </div>
+    <p style="float: right">- Daven Boparai</p>
 
 </body>
+
+</html>
 
 </html>
