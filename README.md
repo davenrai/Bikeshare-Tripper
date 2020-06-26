@@ -5,3 +5,4 @@ This web app was created to generate routes between two bikeshare locations acro
 https://whispering-retreat-44431.herokuapp.com/
 
 ### Future Additions
+Ability to choose a bikeshare location and find locations within 30 minutes of it. 
