@@ -23,8 +23,13 @@
 
     <div id="container">
         <h1 class="title">Bikeshare Random Trip Generator</h1>
+        <div id="content" style="display:inline-flex;">
         <div id="map"></div>
-        <button style="margin-top: 10px" id="generateButton" type="button" value='Generate'
+        <select style="max-height: 50px; margin-left: 10px;">
+            <option value="random">Random</option>
+        </select>
+        </div>
+        <button style="margin-top: 10px; display:grid; margin:auto;" id="generateButton" type="button" value='Generate'
             class="btn btn-primary">Generate</button>
         <p id="generationResult" style="margin: 20px"> Estimated Time:  </p>
         <div id="info">
