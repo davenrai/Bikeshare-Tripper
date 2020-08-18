@@ -2,7 +2,7 @@
        * element that contains the map. */
 #map {
   width: 900px;
-  height: 700px;
+  height: 600px;
 }
 
 /* Optional: Makes the sample page fill the window. */
@@ -32,16 +32,15 @@ body {
   display: flex;
   margin: auto;
   justify-content: center;
-  height: 150px;
-  width: 50%;
+  height: 125px;
+  width: 40%;
 }
 
 #destinationInfo {
   width: 50%;
   border: 1px solid white;
 }
-
-#originInfo {
-  width: 50%;
-  border: 1px solid white;
+#signoff {
+  float: right; 
+  margin-right: 50px;
 }
