@@ -16,32 +16,29 @@
     <script src="./app.js"></script>
 </head>
 <body>
+    <h1 class="title">Bikeshare Trip Generator</h1>
     <div id="container">
-        <h1 class="title">Bikeshare Trip Generator</h1>
-        <div id="content" style="display:inline-flex;">
-            <div id="map"></div>
-            <div style="width: 400px; height: 400px;">
-                <label style="display:inline-block">Select Origin Destination</label>
+        <!-- <span id="generationResult" style="margin: 10px; color: black; display:inline-block"> Estimated Time: </span> -->
+        <div id="info">
+            <label style="font-size: 16pt">Select Origin Destination</label>
                 <select id="originDropdown" style="max-height: 50px; margin-left: 10px; float:left; display:block;">
                     <option value="Random">Random</option>
                 </select>
-            </div>
-        </div>
-        <button style="margin-top: 10px; display:grid; margin:auto;" id="generateButton" type="button" value='Generate'
-            class="btn btn-primary">Generate</button>
-        <p id="generationResult" style="margin: 10px"> Estimated Time: </p>
-        <div id="info">
-            <span id="destinationInfo">
-                <h3 class="title">Origin</h3>
+                <br>
+            <p id="generationResult" style="margin: 10px;"> Estimated Time: </p>
+            <div id="destinationInfo">
+                <h3 class="text">Origin</h3>
                 <p id="originAddress"></p>
-            </span>
-            <span id="destinationInfo">
-                <h3 class="title">Destination</h3>
+            </div>
+            <div id="destinationInfo">
+                <h3 class="text">Destination</h3>
                 <p id="destinationAddress"></p>
-            </span>
+            </div>
+            <button style="margin-top: 10%" id="generateButton" type="button" value='Generate'
+            class="btn btn-primary">Generate</button>
         </div>
+        <div id="map"></div>
     </div>
-    <p id="signoff">- Daven Boparai</p>
 </body>
 
 </html>
