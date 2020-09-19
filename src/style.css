@@ -33,7 +33,7 @@ body {
   justify-content:flex-start;
 }
 
-#button {
+#generateButton {
   margin-top: 10px;
   height: 7%;
 }
