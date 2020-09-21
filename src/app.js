@@ -61,7 +61,6 @@ let marker;
 
 printStationMarkers().then(result => {
     for (let i = 0; i < station_data.length; i++) {
-        //console.log(station_data[i])
 
         lat = station_data[i]['lat']
         lon = station_data[i]['lon']
@@ -100,59 +99,47 @@ const getRoute = () => {
         const dropdown = document.querySelector('#originDropdown')
         if (dropdown.value === "Random") {
             firstStationNum = Math.floor(Math.random() * station_data.length)
-        }
-        else {
+        } else {
             firstStationNum = dropdown.value
         }
-            firstStation = new google.maps.LatLng(station_data[firstStationNum]['lat'], station_data[firstStationNum]['lon'])
-            console.log("first Station: " + station_data[firstStationNum]['name'])
-            secondStationNum = Math.floor(Math.random() * station_data.length)   
-            console.log("lat lng of first " + firstStation)
+        firstStation = new google.maps.LatLng(station_data[firstStationNum]['lat'], station_data[firstStationNum]['lon'])
+        secondStationNum = Math.floor(Math.random() * station_data.length)
 
-            console.log("second location " + station_data[secondStationNum]['name'])
-            let secondStation = new google.maps.LatLng(station_data[secondStationNum]['lat'], station_data[secondStationNum]['lon'])
+        let secondStation = new google.maps.LatLng(station_data[secondStationNum]['lat'], station_data[secondStationNum]['lon'])
 
-            // checkRoute
-            let request = {
-                origin: firstStation,
-                destination: secondStation,
-                travelMode: 'BICYCLING'
-            };
+        // checkRoute
+        let request = {
+            origin: firstStation,
+            destination: secondStation,
+            travelMode: 'BICYCLING'
+        };
 
-            directionsService.route(request, function (response, status) {
-                const result = document.querySelector('#generationResult')
-                if (status == "OK") {
+        directionsService.route(request, function (response, status) {
+            const result = document.querySelector('#generationResult')
+            if (status == "OK") {
 
-                    if (response.routes[0].legs[0].duration.value <= 1800) {
-                        //console.log(response.routes[0].legs[0].duration.value)
-                        setMapOnAll(null);
-                        //console.log(map)
-                        directionsRenderer.setDirections(response);
-                        directionsRenderer.setMap(map);
+                if (response.routes[0].legs[0].duration.value <= 1800) {
+                    setMapOnAll(null);
+                    directionsRenderer.setDirections(response);
+                    directionsRenderer.setMap(map);
 
-                        const originAddress = document.querySelector('#originAddress')
-                        originAddress.innerText = station_data[firstStationNum]['address']
+                    const originAddress = document.querySelector('#originAddress')
+                    originAddress.innerText = station_data[firstStationNum]['address']
 
-                        const destinationAddress = document.querySelector('#destinationAddress')
-                        destinationAddress.innerText = station_data[secondStationNum]['address']
+                    const destinationAddress = document.querySelector('#destinationAddress')
+                    destinationAddress.innerText = station_data[secondStationNum]['address']
 
 
-                        result.innerText = "Estimated Time: " + response.routes[0].legs[0].duration.text;
-                    } else {
-                        console.log('route is over 30 mins... finding new route' + response)
-                        return getRoute();
-
-                    }
+                    result.innerText = "Estimated Time: " + response.routes[0].legs[0].duration.text;
                 } else {
-                    console.log('ERROR')
+                    return getRoute();
                 }
-            })
+            } else {
+                console.log('ERROR')
+            }
+        })
 
     })
-}
-
-const getRandomRoute = () => {
-    
 }
 
 window.onload = function () {
