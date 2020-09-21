@@ -15,27 +15,27 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <script src="./app.js"></script>
 </head>
+
 <body>
     <h1 class="title">Bikeshare Trip Generator</h1>
     <div id="container">
         <!-- <span id="generationResult" style="margin: 10px; color: black; display:inline-block"> Estimated Time: </span> -->
         <div id="info">
-            <label style="font-size: 16pt">Select Origin Destination</label>
-                <select id="originDropdown" style="max-height: 50px; margin-left: 10px; float:left; display:block;">
-                    <option value="Random">Random</option>
-                </select>
-                <br>
-            <p id="generationResult" style="margin: 10px;"> Estimated Time: </p>
+            <label class="text">Select Origin Intersection</label>
+            <select id="originDropdown">
+                <option value="Random">Random</option>
+            </select>
+            <br>
+            <p id="generationResult" class="text"> Estimated Time: </p>
             <div id="destinationInfo">
-                <h3 class="text">Origin</h3>
-                <p id="originAddress"></p>
+                <h3>Origin</h3>
+                <p id="originAddress" class="text"></p>
             </div>
             <div id="destinationInfo">
-                <h3 class="text">Destination</h3>
-                <p id="destinationAddress"></p>
+                <h3>Destination</h3>
+                <p id="destinationAddress" class="text"></p>
             </div>
-            <button id="generateButton" type="submit" value='Generate'
-            class="btn btn-primary">Generate</button>
+            <button id="generateButton" type="submit" value='Generate' class="btn btn-primary">Generate</button>
         </div>
         <div id="map"></div>
     </div>
