@@ -40,13 +40,15 @@ h3 {
 #generateButton {
   margin-top: 10px;
   height: 7%;
+  align-items: flex-end;
 }
 
 #info {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   flex-direction: column;
-  color: black
+  color: black;
+  height: 90%;
 }
 
 #destinationInfo {
@@ -60,7 +62,7 @@ h3 {
 #originDropdown {
   max-height: 50px;
   margin-left: 10px;
-  margin-bottom: 20%;
+  height: 60px;
   float: left; 
   display: block;
 } 
